@@ -1,0 +1,39 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.header {
+	padding: 20px 0px;
+	border-bottom: 1px solid gray;
+
+	.linkList {
+		@include flex(flex-start, center);
+		// gap: 32px;
+		.linkWrapper {
+			padding: 4px 24px;
+
+			&:not(:last-of-type) {
+				border-right: 1px solid black;
+			}
+			
+			.navlink {
+				color: black;
+				text-decoration: none;
+
+				transition: $main-transition;
+				&:hover,
+				&:focus {
+					color: blueviolet;
+				}
+			}
+			.active {
+				@extend .navlink;
+
+				text-decoration: underline 1px solid blueviolet;
+			}
+		}
+	}
+}
+.text {
+	font-size: 20px;
+	font-weight: 400;
+}
