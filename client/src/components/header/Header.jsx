@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import { navigation } from "../../data/navigation";
 
 import styles from "./Header.module.scss";
-
-function isActiveLink(isActive) {
-	return isActive ? `${styles.active}` : `${styles.navlink}`;
-}
+import { isActiveLink } from "../../shared/functions/isActive";
+// function isActiveLink(isActive) {
+// 	return isActive ? `${styles.active}` : `${styles.navlink}`;
+// }
 
 const Header = () => {
 	return (
@@ -18,7 +18,7 @@ const Header = () => {
 								<NavLink
 									to={el.link}
 									className={({ isActive }) =>
-										isActiveLink(isActive)
+										isActiveLink(isActive, styles)
 									}
 								>
 									<p className={styles.linkText}>{el.name}</p>

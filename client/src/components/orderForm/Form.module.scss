@@ -1,0 +1,50 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.form {
+	@include flex(center, center);
+	flex-direction: column;
+	gap: 16px;
+	width: 100%;
+}
+.label {
+	position: relative;
+	@include flex(flex-start, flex-start);
+	flex-direction: column;
+	gap: 4px;
+	width: 100%;
+	font-size: 14px;
+}
+.input {
+	width: 100%;
+	padding: 8px 16px;
+	border-radius: 8px;
+	border: 1px solid $regular;
+}
+
+.error {
+	font-size: 14px;
+	position: absolute;
+	left: 0;
+	bottom: -16px;
+	color: red;
+}
+
+.btn {
+	position: absolute;
+	bottom: 12%;
+	right: 22%;
+	transform: translate(-50%, -50%);
+	@include flex(center, center);
+	padding: 8px 16px;
+	margin-left: auto;
+	border-radius: 8px;
+	border: 1px solid $regular;
+	width: 75px;
+	transition: $main-transition;
+	&:hover,
+	&:focus {
+		background-color: $main-hover-bg;
+		color: $main-hover-color;
+	}
+}

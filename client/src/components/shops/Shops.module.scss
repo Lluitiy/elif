@@ -1,0 +1,39 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.shopList {
+	width: 100%;
+	@include flex(center, center);
+	flex-direction: column;
+
+	gap: 16px;
+	.shopItem {
+		@include flex(center, center);
+
+		width: 100%;
+		.navlink {
+			color: $regular;
+			text-decoration: none;
+			transition: $main-transition;
+
+			&:hover,
+			&:focus {
+				color: $main-hover-color;
+				background-color: $main-hover-bg;
+			}
+		}
+		.active {
+			@extend .navlink;
+			text-decoration: underline 1px solid $main-hover-color;
+			background-color: $main-hover-bg;
+		}
+
+		a {
+			width: 100%;
+			text-align: center;
+			padding: 32px 48px;
+			border-radius: 10px;
+			border: 1px solid $regular;
+		}
+	}
+}

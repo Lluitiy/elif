@@ -1,0 +1,31 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.coupon {
+	@include flex(center, center);
+
+	flex-direction: column;
+	gap: 16px;
+
+	width: 360px;
+	padding: 16px;
+
+	border-radius: 8px;
+	border: 1px solid $main-hover-bg;
+	box-shadow: $shadow;
+	.img {
+		@include retina();
+		border-radius: 8px;
+	}
+	.meta {
+		@include flex(flex-start, flex-start);
+		gap: 8px;
+		margin-right: auto;
+		.name {
+			font-size: 16px;
+			font-weight: 500;
+		}
+		.code {
+		}
+	}
+}

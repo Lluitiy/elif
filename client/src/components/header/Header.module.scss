@@ -12,23 +12,23 @@
 			padding: 4px 24px;
 
 			&:not(:last-of-type) {
-				border-right: 1px solid black;
+				border-right: 1px solid $regular;
 			}
-			
+
 			.navlink {
-				color: black;
+				color: $regular;
 				text-decoration: none;
 
 				transition: $main-transition;
 				&:hover,
 				&:focus {
-					color: blueviolet;
+					color: $main-hover-color;
 				}
 			}
 			.active {
 				@extend .navlink;
 
-				text-decoration: underline 1px solid blueviolet;
+				text-decoration: underline 1px solid $main-hover-color;
 			}
 		}
 	}

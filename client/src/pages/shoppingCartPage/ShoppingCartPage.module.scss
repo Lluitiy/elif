@@ -1,0 +1,29 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.wrapper {
+	@include flex(flex-start, flex-start);
+	gap: 24px;
+
+	height: calc(100vh - 230px);
+	.form {
+		width: 50%;
+		height: 100%;
+		padding: 24px;
+
+		box-shadow: $shadow;
+		border-radius: 20px;
+		border: 1px solid lightgrey;
+	}
+
+	.rightWrapper {
+		@include flex(flex-start, space-between);
+		flex-direction: column;
+		height: 100%;
+
+		.cart {
+			@extend .form;
+			width: 100%;
+		}
+	}
+}

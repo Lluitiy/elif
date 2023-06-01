@@ -1,0 +1,20 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.btn {
+	@include flex(center, center);
+	padding: 8px 16px;
+	margin-left: auto;
+	border-radius: 8px;
+	border: 1px solid $regular;
+
+	transition: $main-transition;
+	&:hover,
+	&:focus {
+		background-color: $main-hover-bg;
+		color: $main-hover-color;
+	}
+	.text {
+		font-size: 14px;
+	}
+}

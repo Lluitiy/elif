@@ -1,0 +1,7 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.top {
+	@include flex(flex-end, flex-end);
+	gap: 36px;
+}

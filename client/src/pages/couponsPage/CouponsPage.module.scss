@@ -1,0 +1,9 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.coupons {
+	width: 100%;
+	@include flex(flex-start, center);
+	flex-wrap: wrap;
+	gap: 36px;
+}
