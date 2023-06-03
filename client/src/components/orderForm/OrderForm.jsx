@@ -48,7 +48,7 @@ const OrderForm = ({ order, orderPlace }) => {
 				console.log("data", data);
 				return toast.success(`Order,${data.order.orderId} posted!`);
 			})
-			.catch(() => toast.error("Invalid password or email"));
+			.catch(() => toast.error("Invalid data"));
 	};
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
