@@ -18,7 +18,7 @@ function App() {
 			<Suspense>
 				<Routes>
 					<Route path="/" element={<Layout />}>
-						<Route path="shops" index element={<ShopsPage />}>
+						<Route path="shops" element={<ShopsPage />}>
 							<Route path=":route" element={<Products />} />
 						</Route>
 						<Route path="cart" element={<ShoppingCartPage />} />
