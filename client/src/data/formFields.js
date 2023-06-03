@@ -5,7 +5,7 @@ export const nameInput = {
 	required: true,
 	requiredMessage: "Enter your name, please",
 	pattern: /^([A-Za-z]+\s)*[A-Za-z]{2,32}$/i,
-	patternMessage: "Invalid email address",
+	patternMessage: "Invalid name",
 };
 
 export const emailInput = {
@@ -26,7 +26,7 @@ export const phoneInput = {
 	required: true,
 	requiredMessage: "Enter your phone, please",
 	pattern: /^[\d ()+-]+$/i,
-	patternMessage: "Invalid email address",
+	patternMessage: "Invalid phone",
 };
 
 export const addressInput = {

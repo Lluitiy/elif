@@ -24,5 +24,6 @@ npm install
 
 ## Important
 ```
-Back is hosted on free service so it may take some time when first loading the app. If it crashes update the page
+Back is hosted on free service so it may take some time when first loading the app. If it crashes update the page.
+All the data which is rendered from backend might be empty by first load for aproximately 10 seconds 
 ```
