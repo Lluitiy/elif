@@ -1,6 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ToastContainer } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getAllShops } from "./redux/shop/shop-operations";
 
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./layout/Layout";
@@ -13,6 +16,11 @@ const ShoppingCartPage = lazy(() =>
 const CouponsPage = lazy(() => import("./pages/couponsPage/CouponsPage"));
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getAllShops());
+	}, [dispatch]);
 	return (
 		<>
 			<Suspense>
