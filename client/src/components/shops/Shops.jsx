@@ -1,15 +1,18 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { shops } from "../../data/shops";
+import { allShops } from "../../redux/shop/shop-selectors";
 import { isActiveLink } from "../../shared/functions/isActive";
 
 import styles from "./Shops.module.scss";
 
 const Shops = () => {
+	const shops = useSelector(allShops);
+	
 	return (
 		<>
 			<ul className={styles.shopList}>
 				{shops.map((shop) => (
-					<li key={shop.id} className={styles.shopItem}>
+					<li key={shop._id} className={styles.shopItem}>
 						<NavLink
 							to={shop.route}
 							className={({ isActive }) =>

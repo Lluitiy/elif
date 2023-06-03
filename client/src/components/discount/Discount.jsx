@@ -16,7 +16,7 @@ const Discount = ({ onGetDiscount }) => {
 			<button
 				type="button"
 				className={styles.btn}
-				onClick={onGetDiscount}
+				// onClick={onGetDiscount}
 			>
 				Use
 			</button>

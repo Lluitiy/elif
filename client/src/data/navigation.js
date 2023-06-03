@@ -14,9 +14,4 @@ export const navigation = [
 		link: "coupons",
 		id: 3,
 	},
-	{
-		name: "History",
-		link: "history",
-		id: 4,
-	},
 ];

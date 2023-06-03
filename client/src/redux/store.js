@@ -7,6 +7,7 @@ import {
 	PURGE,
 	REGISTER,
 } from "redux-persist";
+
 import cartReducer from "./cart/cart-slice";
 import shopReducer from "./shop/shop-slice";
 

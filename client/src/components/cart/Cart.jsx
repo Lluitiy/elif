@@ -1,31 +1,32 @@
-import { useSelector } from "react-redux";
-import { shops } from "../../data/shops";
-import {
-	getCurrentShop,
-	getProductIdsInCart,
-} from "../../redux/cart/cart-selectors";
+import { totalPriceForProduct } from "../../shared/functions/totalPriceForProduct";
+
+import AdjustAmount from "../adjustAmount/AdjustAmount";
 import Product from "../product/Product";
 
 import styles from "./Cart.module.scss";
-const Cart = () => {
-	const productIds = useSelector(getProductIdsInCart);
-	const currentShop = useSelector(getCurrentShop);
-	
-	const [products] = shops.filter((shop) => shop.id === currentShop);
 
+const Cart = ({ cartOrder, productIds }) => {
 	return (
 		<>
-			<ul>
-				{products?.map((product) => (
-					<li key={product.id} className={styles.item}>
-						<Product
-							product={product}
-							// BTN={AddToCartBtn}
-							// onClick={onAddProduct}
-							styles={styles}
-						/>
-					</li>
-				))}
+			<ul className={styles.list}>
+				{cartOrder?.map((product) => {
+					const id = product._id;
+					const price = product.price;
+					const amount = productIds[id];
+					const totalPrice = totalPriceForProduct(amount, price);
+
+					return (
+						<li key={id} className={styles.item}>
+							<Product
+								product={product}
+								BTN={AdjustAmount}
+								amount={amount}
+								styles={styles}
+								totalPrice={totalPrice}
+							/>
+						</li>
+					);
+				})}
 			</ul>
 		</>
 	);

@@ -1,16 +1,25 @@
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { uid } from "uid";
+import { toast } from "react-toastify";
+
+import { addOrder } from "../../redux/cart/cart-operations";
+import { isCaptcha } from "../../redux/cart/cart-selectors";
+
 import {
 	nameInput,
 	emailInput,
 	phoneInput,
-	adressInput,
+	addressInput,
 } from "../../data/formFields";
 
 import Input from "./Input";
 
 import styles from "./Form.module.scss";
 
-const OrderForm = () => {
+const OrderForm = ({ order, orderPlace }) => {
+	const isCaptchaSuccess = useSelector(isCaptcha);
+	const dispatch = useDispatch();
 	const {
 		register,
 		handleSubmit,
@@ -20,33 +29,46 @@ const OrderForm = () => {
 		defaultValues: { email: "", password: "" },
 	});
 
-	const onSubmit = ({ name, email, phone, adress }) => {
+	const onSubmit = ({ name, email, phone, address }) => {
 		if (!isValid) return;
-		let res = {
+		let data = {
+			orderId: uid(),
+			order: order,
+			orderPlace: orderPlace,
 			name,
 			email,
 			phone,
-			adress,
+			address,
 		};
-		console.log("res", res);
+		console.log("res", data);
 
-		// dispatch(login(res))
-		// 	.unwrap()
-		// 	.then((res) => {
-		// 		const { name } = res.user;
-		// 		return toast.success(`Welcome, ${name} !`);
-		// 	})
-		// 	.catch(() => toast.error("Invalid password or email"));
+		dispatch(addOrder(data))
+			.unwrap()
+			.then((data) => {
+				console.log("data", data);
+				return toast.success(`Order,${data.order.orderId} posted!`);
+			})
+			.catch(() => toast.error("Invalid password or email"));
 	};
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
 			<Input settings={nameInput} register={register} errors={errors} />
 			<Input settings={emailInput} register={register} errors={errors} />
 			<Input settings={phoneInput} register={register} errors={errors} />
-			<Input settings={adressInput} register={register} errors={errors} />
-			<button type="submit" className={styles.btn}>
-				Order
-			</button>
+			<Input
+				settings={addressInput}
+				register={register}
+				errors={errors}
+			/>
+			{isCaptchaSuccess ? (
+				<button type="submit" className={styles.btn}>
+					Order
+				</button>
+			) : (
+				<button disabled={true} className={styles.btnDis}>
+					Enter Captcha Please
+				</button>
+			)}
 		</form>
 	);
 };

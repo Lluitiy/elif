@@ -1,3 +1,40 @@
 @import "../../styles/mixins";
 @import "../../styles/variables";
 
+.list {
+	@include flex(flex-start, center);
+	flex-direction: column;
+	gap: 24px;
+
+	height: 100%;
+	overflow-y: scroll;
+	padding: 16px 24px;
+
+	.item {
+		@include flex(center, flex-start);
+
+		flex-direction: column;
+		gap: 16px;
+
+		width: 400px;
+		padding: 16px;
+
+		border-radius: 8px;
+		border: 1px solid $main-hover-bg;
+		box-shadow: $shadow;
+		.img {
+			@include retina();
+			border-radius: 8px;
+		}
+		.meta {
+			.name {
+				font-size: 16px;
+				font-weight: 500;
+			}
+		}
+		.price {
+			width: 100%;
+			@include flex(space-between, center);
+		}
+	}
+}

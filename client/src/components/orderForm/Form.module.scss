@@ -32,19 +32,33 @@
 
 .btn {
 	position: absolute;
-	bottom: 12%;
-	right: 22%;
-	transform: translate(-50%, -50%);
+	bottom: 15px;
+	right: 0;
 	@include flex(center, center);
 	padding: 8px 16px;
 	margin-left: auto;
 	border-radius: 8px;
 	border: 1px solid $regular;
-	width: 75px;
+	width: 150px;
+	height: 44px;
 	transition: $main-transition;
 	&:hover,
 	&:focus {
 		background-color: $main-hover-bg;
 		color: $main-hover-color;
 	}
+}
+.btnDis {
+	position: absolute;
+	bottom: 15px;
+	right: 0;
+	@include flex(center, center);
+	padding: 8px 16px;
+	margin-left: auto;
+	border-radius: 8px;
+	border: 1px solid $regular;
+	// width: 150px;
+	height: 44px;
+	transition: $main-transition;
+	cursor: not-allowed;
 }

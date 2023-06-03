@@ -1,4 +1,12 @@
-const Product = ({ product, BTN = null, onClick, styles, shopId }) => {
+const Product = ({
+	product,
+	onClick,
+	styles,
+	BTN,
+	shopId,
+	amount,
+	totalPrice = null,
+}) => {
 	return (
 		<>
 			<img
@@ -11,9 +19,16 @@ const Product = ({ product, BTN = null, onClick, styles, shopId }) => {
 			<div className={styles.meta}>
 				<p className={styles.name}>{product.name}</p>
 			</div>
-			{BTN && (
-				<BTN onClick={onClick} shopId={shopId} productId={product.id} />
-			)}
+			<div className={styles.price}>
+				{totalPrice && <div>{totalPrice} credits</div>}
+				<BTN
+					onClick={onClick}
+					shopId={shopId}
+					productId={product._id}
+					amount={amount}
+					totalPrice={totalPrice}
+				/>
+			</div>
 		</>
 	);
 };

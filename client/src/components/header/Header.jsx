@@ -1,11 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { navigation } from "../../data/navigation";
+import { isActiveLink } from "../../shared/functions/isActive";
 
 import styles from "./Header.module.scss";
-import { isActiveLink } from "../../shared/functions/isActive";
-// function isActiveLink(isActive) {
-// 	return isActive ? `${styles.active}` : `${styles.navlink}`;
-// }
 
 const Header = () => {
 	return (

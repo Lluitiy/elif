@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -11,33 +11,18 @@ const ShoppingCartPage = lazy(() =>
 	import("./pages/shoppingCartPage/ShoppingCartPage")
 );
 const CouponsPage = lazy(() => import("./pages/couponsPage/CouponsPage"));
-const HistoryPage = lazy(() => import("./pages/historyPage/HistoryPage"));
 
 function App() {
-	const [cart, setCart] = useState({ shop: "", productIds: [] });
-
 	return (
 		<>
 			<Suspense>
 				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route path="shops" element={<ShopsPage />}>
-							<Route
-								path=":route"
-								element={<Products setCart={setCart} />}
-							/>
+							<Route path=":route" element={<Products />} />
 						</Route>
-						<Route
-							path="cart"
-							element={
-								<ShoppingCartPage
-									setCart={setCart}
-									cart={cart}
-								/>
-							}
-						/>
+						<Route path="cart" element={<ShoppingCartPage />} />
 						<Route path="coupons" element={<CouponsPage />} />
-						<Route path="history" element={<HistoryPage />} />
 					</Route>
 					<Route path="*" element={<Navigate to="/shops" />} />
 				</Routes>
