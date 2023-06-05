@@ -5,11 +5,12 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAllShops } from "./redux/shop/shop-operations";
 
+import ShopsPage from "./pages/shopsPage/ShopsPage";
+import Products from "./components/products/Products";
+
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./layout/Layout";
 
-const ShopsPage = lazy(() => import("./pages/shopsPage/ShopsPage"));
-const Products = lazy(() => import("./components/products/Products"));
 const ShoppingCartPage = lazy(() =>
 	import("./pages/shoppingCartPage/ShoppingCartPage")
 );
@@ -20,7 +21,7 @@ function App() {
 
 	useEffect(() => {
 		dispatch(getAllShops());
-	}, [dispatch]);
+	}, []);
 	return (
 		<>
 			<Suspense>
